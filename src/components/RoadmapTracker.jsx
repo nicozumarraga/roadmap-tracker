@@ -8,6 +8,7 @@ const RoadmapTracker = () => {
   });
   const [selectedMonth, setSelectedMonth] = useState(null);
   const [selectedArea, setSelectedArea] = useState(null);
+  const [viewingAllPeriods, setViewingAllPeriods] = useState(false);
 
   useEffect(() => {
     localStorage.setItem('completedGoals', JSON.stringify([...completedGoals]));
@@ -47,34 +48,39 @@ const RoadmapTracker = () => {
       god: []
     };
 
-    // Group goals by difficulty
-    ['muggle', 'monk', 'god'].forEach(difficulty => {
-      if (area) {
-        relevantGoals[difficulty] = goals[month][difficulty].filter(g => g.area === area);
-      } else {
-        relevantGoals[difficulty] = goals[month][difficulty];
-      }
-    });
+    if (viewingAllPeriods && area) {
+      // Calculate progress across all periods for the selected area
+      [6, 12, 18].forEach(period => {
+        ['muggle', 'monk', 'god'].forEach(difficulty => {
+          relevantGoals[difficulty] = [
+            ...relevantGoals[difficulty],
+            ...goals[period][difficulty].filter(g => g.area === area)
+          ];
+        });
+      });
+    } else {
+      // Original calculation for single period
+      ['muggle', 'monk', 'god'].forEach(difficulty => {
+        if (area) {
+          relevantGoals[difficulty] = goals[month][difficulty].filter(g => g.area === area);
+        } else {
+          relevantGoals[difficulty] = goals[month][difficulty];
+        }
+      });
+    }
 
-    // Calculate completion for each difficulty
     const muggleComplete = relevantGoals.muggle.filter(goal => completedGoals.has(goal.id)).length;
     const monkComplete = relevantGoals.monk.filter(goal => completedGoals.has(goal.id)).length;
     const godComplete = relevantGoals.god.filter(goal => completedGoals.has(goal.id)).length;
 
-    // Calculate weighted progress
     let totalProgress = 0;
 
-    // Muggle goals contribute to first 100%
     if (relevantGoals.muggle.length > 0) {
       totalProgress += (muggleComplete / relevantGoals.muggle.length) * 100;
     }
-
-    // Monk goals contribute to next 100%
     if (relevantGoals.monk.length > 0) {
       totalProgress += (monkComplete / relevantGoals.monk.length) * 100;
     }
-
-    // God goals contribute to final 100%
     if (relevantGoals.god.length > 0) {
       totalProgress += (godComplete / relevantGoals.god.length) * 100;
     }
@@ -95,6 +101,7 @@ const RoadmapTracker = () => {
   };
 
   const handleTimelineClick = (month) => {
+    setViewingAllPeriods(false);
     if (selectedMonth === month && !selectedArea) {
       setSelectedMonth(null);
     } else {
@@ -104,6 +111,7 @@ const RoadmapTracker = () => {
   };
 
   const handleBubbleClick = (month, area) => {
+    setViewingAllPeriods(false);
     if (selectedMonth === month && selectedArea === area) {
       setSelectedMonth(null);
       setSelectedArea(null);
@@ -113,9 +121,31 @@ const RoadmapTracker = () => {
     }
   };
 
-  const filterGoals = (goals, area) => {
-    if (!area) return goals;
-    return goals.filter(goal => goal.area === area);
+  const handleAreaLabelClick = (area) => {
+    if (selectedArea === area && viewingAllPeriods) {
+      setSelectedArea(null);
+      setViewingAllPeriods(false);
+    } else {
+      setSelectedArea(area);
+      setSelectedMonth(null);
+      setViewingAllPeriods(true);
+    }
+  };
+
+  const getAllPeriodsGoals = (area) => {
+    const allGoals = {};
+    [6, 12, 18].forEach(period => {
+      ["muggle", "monk", "god"].forEach(difficulty => {
+        if (!allGoals[difficulty]) allGoals[difficulty] = [];
+        allGoals[difficulty] = [
+          ...allGoals[difficulty],
+          ...goals[period][difficulty]
+            .filter(g => g.area === area)
+            .map(g => ({ ...g, period }))
+        ];
+      });
+    });
+    return allGoals;
   };
 
   const timeProgress = calculateTimeProgress();
@@ -130,7 +160,6 @@ const RoadmapTracker = () => {
           />
         </div>
 
-        {/* Clickable markers */}
         {[6, 12, 18].map(month => (
           <div
             key={month}
@@ -161,20 +190,28 @@ const RoadmapTracker = () => {
   );
 
   const GoalsPanel = () => {
-    if (!selectedMonth) return (
+    if (!selectedMonth && !viewingAllPeriods) return (
       <div className="w-full h-64 md:h-full flex items-center justify-center text-gray-500">
         Select a timeline point or area to view goals
       </div>
     );
 
+    const displayGoals = viewingAllPeriods ? getAllPeriodsGoals(selectedArea) : goals[selectedMonth];
+
     return (
       <div className="p-4 md:p-6 h-full overflow-y-auto">
         <div className="flex justify-between items-center mb-4">
           <h3 className="text-lg md:text-xl font-bold text-gray-800">
-            {selectedArea ? `${selectedArea} Goals - Month ${selectedMonth}` : `Month ${selectedMonth} Goals`}
+            {viewingAllPeriods
+              ? `All ${selectedArea} Goals`
+              : selectedArea
+                ? `${selectedArea} Goals - Month ${selectedMonth}`
+                : `Month ${selectedMonth} Goals`}
           </h3>
           <div className="text-sm text-gray-600">
-            Progress: {calculateProgress(selectedMonth, selectedArea)}%
+            Progress: {viewingAllPeriods
+              ? calculateProgress(null, selectedArea)
+              : calculateProgress(selectedMonth, selectedArea)}%
           </div>
         </div>
 
@@ -183,29 +220,31 @@ const RoadmapTracker = () => {
             <div key={difficulty} className="border rounded-lg p-3 md:p-4 bg-white shadow-sm">
               <h4 className="font-semibold mb-3 md:mb-4 capitalize text-gray-800">{difficulty} Mode</h4>
               <div className="space-y-2">
-                {filterGoals(goals[selectedMonth][difficulty], selectedArea).map(goal => (
-                  <div
-                    key={goal.id}
-                    className="flex items-start gap-2 hover:bg-gray-50 p-2 rounded transition-colors cursor-pointer"
-                    onClick={() => handleGoalToggle(goal.id)}
-                  >
-                    <div className="bg-gray-100 rounded">
-                      <input
-                        type="checkbox"
-                        checked={completedGoals.has(goal.id)}
-                        onChange={() => handleGoalToggle(goal.id)}
-                        className="mt-1 mx-1"
-                        onClick={(e) => e.stopPropagation()}
-                      />
-                    </div>
-                    <span className={`flex items-center gap-2 text-sm ${areas[goal.area].textColor}`}>
-                      <span className={`inline-block flex-shrink-0 w-6 h-6 rounded-full ${areas[goal.area].color} text-white text-center leading-6`}>
-                        {areas[goal.area].letter}
+                {displayGoals[difficulty]
+                  .filter(goal => !selectedArea || goal.area === selectedArea)
+                  .map(goal => (
+                    <div
+                      key={goal.id}
+                      className="flex items-start gap-2 hover:bg-gray-50 p-2 rounded transition-colors cursor-pointer"
+                      onClick={() => handleGoalToggle(goal.id)}
+                    >
+                      <div className="bg-gray-100 rounded">
+                        <input
+                          type="checkbox"
+                          checked={completedGoals.has(goal.id)}
+                          onChange={() => handleGoalToggle(goal.id)}
+                          className="mt-1 mx-1"
+                          onClick={(e) => e.stopPropagation()}
+                        />
+                      </div>
+                      <span className={`flex items-center gap-2 text-sm ${areas[goal.area].textColor}`}>
+                        <span className={`inline-block flex-shrink-0 w-6 h-6 rounded-full ${areas[goal.area].color} text-white text-center leading-6`}>
+                          {areas[goal.area].letter}
+                        </span>
+                        {viewingAllPeriods ? `[Month ${goal.period}] ${goal.text}` : goal.text}
                       </span>
-                      {goal.text}
-                    </span>
-                  </div>
-                ))}
+                    </div>
+                  ))}
               </div>
             </div>
           ))}
@@ -227,10 +266,11 @@ const RoadmapTracker = () => {
               <React.Fragment key={area}>
                 {/* Area labels */}
                 <div
-                  className={`absolute left-0 text-sm font-medium ${
-                    selectedArea === area ? 'text-gray-800' : 'text-gray-600'
-                  }`}
+                  className={`absolute left-0 text-sm font-medium cursor-pointer
+                    ${selectedArea === area && viewingAllPeriods ? 'text-gray-800 font-bold' : 'text-gray-600'}
+                    hover:text-gray-800 transition-colors`}
                   style={{ top: 34 + areaIndex * 60 }}
+                  onClick={() => handleAreaLabelClick(area)}
                 >
                   {area}
                 </div>
