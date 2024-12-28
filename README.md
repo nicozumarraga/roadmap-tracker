@@ -14,7 +14,7 @@ A visual and interactive 18-month strategic roadmap tracker built with React. Tr
 
 ## 🚀 Demo
 
-Visit the live demo: [Strategic Roadmap Tracker](https://your-username.github.io/roadmap-tracker)
+Visit the live demo: [Strategic Roadmap Tracker]([https://your-username.github.io/roadmap-tracker](https://nicozumarraga.github.io/roadmap-tracker/))
 
 ![Roadmap Tracker Screenshot](./src/assets/demo-tracker.png)
 
