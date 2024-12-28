@@ -17,6 +17,9 @@ lerna-debug.log*
 # Local files
 *.local
 
+#goals
+goals.json
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

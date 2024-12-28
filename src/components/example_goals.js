@@ -1,71 +1,69 @@
-// Include your goals here using this structure:
-
 export const goals = {
   6: {
     "muggle": [
       {
         id: "6-m-1",
         area: "Academic",
-        text: "Complete introductory courses with B+ average"
+        text: "Maintain cum laude track (8+), with focus on AI/ML courses"
       },
       {
         id: "6-m-2",
         area: "Business",
-        text: "Generate first $1K in revenue from freelance work"
+        text: "Make €2K monthly revenue - total €12K"
       },
       {
         id: "6-m-3",
         area: "Technical",
-        text: "Build and deploy first web application"
+        text: "Deploy recruiting solution focusing on system architecture, monitoring, and scalability"
       },
       {
         id: "6-m-4",
         area: "Networking",
-        text: "Attend 2 industry meetups or conferences"
+        text: "Connect with 2-3 Stanford alumni/professors in AI Systems or MLOps space, HAI"
       }
     ],
     "monk": [
       {
         id: "6-mk-1",
         area: "Academic",
-        text: "Maintain A- average in core subjects"
+        text: "Start research on AI system optimization (using recruiting platform as case study)"
       },
       {
         id: "6-mk-2",
         area: "Business",
-        text: "Secure 3 regular clients for consulting work"
+        text: "Make €4K monthly revenue - total €24K"
       },
       {
         id: "6-mk-3",
         area: "Technical",
-        text: "Develop full-stack application with modern tech stack"
+        text: "Implement advanced monitoring system (costs, performance, data quality) with dashboards"
       },
       {
         id: "6-mk-4",
         area: "Networking",
-        text: "Give first technical presentation at local meetup"
+        text: "Contribute to open-source MLOps tools, engage with AI engineering communities"
       }
     ],
     "god": [
       {
         id: "6-g-1",
         area: "Academic",
-        text: "Achieve top 5% in class ranking"
+        text: "Publish paper on AI system optimization techniques from practical implementations"
       },
       {
         id: "6-g-2",
         area: "Business",
-        text: "Launch first SaaS product with paying customers"
+        text: "Make €8K monthly revenue - total €48K"
       },
       {
         id: "6-g-3",
         area: "Technical",
-        text: "Contribute to major open-source project"
+        text: "Create novel approach to AI system optimization (cost, latency, or quality)"
       },
       {
         id: "6-g-4",
         area: "Networking",
-        text: "Build mentorship relationship with industry leader"
+        text: "Establish relationship with Stanford AI Systems research group"
       }
     ]
   },
@@ -74,66 +72,66 @@ export const goals = {
       {
         id: "12-m-1",
         area: "Academic",
-        text: "Complete advanced coursework with B+ average"
+        text: "Maintain cum laude track (8+), with focus on AI/ML courses"
       },
       {
         id: "12-m-2",
         area: "Business",
-        text: "Grow monthly revenue to $2K"
+        text: "Make €4K monthly revenue - total €24K"
       },
       {
         id: "12-m-3",
         area: "Technical",
-        text: "Master one programming language and framework"
+        text: "Build comprehensive MLOps pipeline (testing, monitoring, deployment)"
       },
       {
         id: "12-m-4",
         area: "Networking",
-        text: "Build professional social media presence"
+        text: "Regular contributions to AI engineering discussions/communities"
       }
     ],
     "monk": [
       {
         id: "12-mk-1",
         area: "Academic",
-        text: "Maintain A- average in core subjects"
+        text: "Write paper on AI system optimization techniques from practical implementations"
       },
       {
         id: "12-mk-2",
         area: "Business",
-        text: "Secure 3 regular clients for consulting work"
+        text: "Make €8K monthly revenue - total €48K"
       },
       {
         id: "12-mk-3",
         area: "Technical",
-        text: "Develop full-stack application with modern tech stack"
+        text: "Create reusable components for AI system deployment and monitoring"
       },
       {
         id: "12-mk-4",
         area: "Networking",
-        text: "Give first technical presentation at local meetup"
+        text: "Present AI systems work at 1-2 relevant conferences/workshops"
       }
     ],
     "god": [
       {
         id: "12-g-1",
         area: "Academic",
-        text: "Achieve top 5% in class ranking"
+        text: "Submit paper to top systems conference (SOSP, OSDI, or similar)"
       },
       {
         id: "12-g-2",
         area: "Business",
-        text: "Launch first SaaS product with paying customers"
+        text: "Make €10K monthly revenue - total €60K"
       },
       {
         id: "12-g-3",
         area: "Technical",
-        text: "Contribute to major open-source project"
+        text: "Open-source significant MLOps/AI systems tooling with community adoption"
       },
       {
         id: "12-g-4",
         area: "Networking",
-        text: "Build mentorship relationship with industry leader"
+        text: "Collaborate with research lab on AI systems optimization"
       }
     ]
   },
@@ -142,66 +140,66 @@ export const goals = {
       {
         id: "18-m-1",
         area: "Academic",
-        text: "Graduate with honors"
+        text: "Maintain cum laude track (8+), with focus on AI/ML courses"
       },
       {
         id: "18-m-2",
         area: "Business",
-        text: "Establish stable consulting business"
+        text: "Have portfolio of successful enterprise AI system implementations - €8K monthly revenue."
       },
       {
         id: "18-m-3",
         area: "Technical",
-        text: "Build portfolio of 3-5 significant projects"
+        text: "Maintain production AI systems serving multiple enterprises"
       },
       {
         id: "18-m-4",
         area: "Networking",
-        text: "Develop network of industry professionals"
+        text: "Build network in AI systems/MLOps community through consistent contributions"
       }
     ],
     "monk": [
       {
         id: "18-mk-1",
         area: "Academic",
-        text: "Maintain A- average in core subjects"
+        text: "Prepare Stanford application highlighting AI systems expertise and research"
       },
       {
         id: "18-mk-2",
         area: "Business",
-        text: "Secure 3 regular clients for consulting work"
+        text: "Establish systematic approach to AI system implementation and optimization"
       },
       {
         id: "18-mk-3",
         area: "Technical",
-        text: "Develop full-stack application with modern tech stack"
+        text: "Create comprehensive framework for AI system evaluation and optimization"
       },
       {
         id: "18-mk-4",
         area: "Networking",
-        text: "Give first technical presentation at local meetup"
+        text: "Lead workshops/discussions on AI systems engineering practices"
       }
     ],
     "god": [
       {
         id: "18-g-1",
         area: "Academic",
-        text: "Achieve top 5% in class ranking"
+        text: "Graduate with distinction, published systems paper, strong Stanford application"
       },
       {
         id: "18-g-2",
         area: "Business",
-        text: "Launch first SaaS product with paying customers"
+        text: "Recognition as AI systems implementation expert with proven enterprise cases - €10K monthly revenue."
       },
       {
         id: "18-g-3",
         area: "Technical",
-        text: "Contribute to major open-source project"
+        text: "Significant open-source contributions to AI systems/MLOps ecosystem"
       },
       {
         id: "18-g-4",
         area: "Networking",
-        text: "Build mentorship relationship with industry leader"
+        text: "Strong connections with Stanford and industry AI systems researchers"
       }
     ]
   }
