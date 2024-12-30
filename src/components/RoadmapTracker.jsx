@@ -23,7 +23,7 @@ const RoadmapTracker = () => {
 
   const calculateTimeProgress = () => {
     const now = new Date();
-    const startDate = new Date('2024-12-28');
+    const startDate = new Date('2025-01-01');
     const sixMonthMark = new Date('2025-06-30');
     const yearMark = new Date('2025-12-31');
     const eighteenMonthMark = new Date('2026-06-30');
