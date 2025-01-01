@@ -9,12 +9,12 @@ export const goals = {
       {
         id: "6-m-2",
         area: "Business",
-        text: "Make €2K monthly revenue - total €12K"
+        text: "Make €30K yearly revenue at SeaStone AI"
       },
       {
         id: "6-m-3",
         area: "Technical",
-        text: "Deploy recruiting solution focusing on system architecture, monitoring, and scalability"
+        text: "Deploy RAG solution focusing on system architecture, monitoring, and scalability"
       },
       {
         id: "6-m-4",
@@ -26,17 +26,17 @@ export const goals = {
       {
         id: "6-mk-1",
         area: "Academic",
-        text: "Start research on AI system optimization (using recruiting platform as case study)"
+        text: "Start research on AI system optimization"
       },
       {
         id: "6-mk-2",
         area: "Business",
-        text: "Make €4K monthly revenue - total €24K"
+        text: "Make €30K yearly revenue at SeaStone AI"
       },
       {
         id: "6-mk-3",
         area: "Technical",
-        text: "Implement advanced monitoring system (costs, performance, data quality) with dashboards"
+        text: "Implement RAG solution and ML OPS solution SaaS"
       },
       {
         id: "6-mk-4",
@@ -48,17 +48,17 @@ export const goals = {
       {
         id: "6-g-1",
         area: "Academic",
-        text: "Publish paper on AI system optimization techniques from practical implementations"
+        text: "Publish first paper on AI system optimization techniques from practical implementations"
       },
       {
         id: "6-g-2",
         area: "Business",
-        text: "Make €8K monthly revenue - total €48K"
+        text: "Make €50K revenue at SeaStone AI"
       },
       {
         id: "6-g-3",
         area: "Technical",
-        text: "Create novel approach to AI system optimization (cost, latency, or quality)"
+        text: "Publish two solutions on AI system optimization"
       },
       {
         id: "6-g-4",
@@ -77,12 +77,12 @@ export const goals = {
       {
         id: "12-m-2",
         area: "Business",
-        text: "Make €4K monthly revenue - total €24K"
+        text: "Make €80K yearly revenue at SeaStone AI"
       },
       {
         id: "12-m-3",
         area: "Technical",
-        text: "Build comprehensive MLOps pipeline (testing, monitoring, deployment)"
+        text: "Learn the full data science stack (Python, SQL, ML, DL, MLOps, etc.)"
       },
       {
         id: "12-m-4",
@@ -99,7 +99,7 @@ export const goals = {
       {
         id: "12-mk-2",
         area: "Business",
-        text: "Make €8K monthly revenue - total €48K"
+        text: "Make €100K yearly revenue at SeaStone AI"
       },
       {
         id: "12-mk-3",
@@ -109,7 +109,7 @@ export const goals = {
       {
         id: "12-mk-4",
         area: "Networking",
-        text: "Present AI systems work at 1-2 relevant conferences/workshops"
+        text: "Present AI systems work at 1 relevant conferences/workshops"
       }
     ],
     "god": [
@@ -121,7 +121,7 @@ export const goals = {
       {
         id: "12-g-2",
         area: "Business",
-        text: "Make €10K monthly revenue - total €60K"
+        text: "Make €120K yearly revenue at SeaStone AI"
       },
       {
         id: "12-g-3",
