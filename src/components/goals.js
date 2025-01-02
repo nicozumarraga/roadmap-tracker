@@ -9,7 +9,7 @@ export const goals = {
       {
         id: "6-m-2",
         area: "Business",
-        text: "Make €30K yearly revenue at SeaStone AI"
+        text: "Make €20K yearly revenue at SeaStone AI"
       },
       {
         id: "6-m-3",
@@ -77,7 +77,7 @@ export const goals = {
       {
         id: "12-m-2",
         area: "Business",
-        text: "Make €80K yearly revenue at SeaStone AI"
+        text: "Make €40K yearly revenue at SeaStone AI"
       },
       {
         id: "12-m-3",
@@ -99,7 +99,7 @@ export const goals = {
       {
         id: "12-mk-2",
         area: "Business",
-        text: "Make €100K yearly revenue at SeaStone AI"
+        text: "Make €80K yearly revenue at SeaStone AI"
       },
       {
         id: "12-mk-3",
@@ -121,7 +121,7 @@ export const goals = {
       {
         id: "12-g-2",
         area: "Business",
-        text: "Make €120K yearly revenue at SeaStone AI"
+        text: "Make €100K yearly revenue at SeaStone AI"
       },
       {
         id: "12-g-3",
