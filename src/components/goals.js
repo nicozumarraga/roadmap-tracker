@@ -140,7 +140,7 @@ export const goals = {
       {
         id: "18-m-1",
         area: "Academic",
-        text: "Maintain cum laude track (8+), with focus on AI/ML courses"
+        text: "Maintain cum laude track (8+), with focus on AI/ML courses."
       },
       {
         id: "18-m-2",
